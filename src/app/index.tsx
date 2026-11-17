@@ -7,7 +7,7 @@ export default function Index() {
         source={require("@/assets/images/android-icon-foreground.png")}
         style={{ width: 200, height: 200, borderRadius: 35 }}
       />
-      <Text style={styles.text}>Welcome to cartly</Text>
+      <Text className="text-red-500">Welcome to cartly</Text>
     </View>
   );
 }
