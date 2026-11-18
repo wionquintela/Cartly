@@ -1,4 +1,5 @@
 import { Image } from "expo-image";
+import { Link } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 export default function Index() {
   return (
@@ -8,6 +9,7 @@ export default function Index() {
         style={{ width: 200, height: 200, borderRadius: 35 }}
       />
       <Text className="text-red-500">Welcome to cartly</Text>
+      <Link href={"/(auth)"}>Sign up</Link>
     </View>
   );
 }
