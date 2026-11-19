@@ -286,6 +286,7 @@ export default function AuthPage() {
             keyboardType="email-address"
             autoCapitalize="none"
             autoCorrect={false}
+            aria-disabled={isFetching}
           />
           {signInErrors.fields?.identifier ? (
             <Text style={styles.error}>
@@ -305,6 +306,7 @@ export default function AuthPage() {
             secureTextEntry
             autoCapitalize="none"
             autoCorrect={false}
+            aria-disabled={isFetching}
           />
           {signInErrors.fields?.password ? (
             <Text style={styles.error}>
