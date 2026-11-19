@@ -1,8 +1,11 @@
 import { useClerk, useUser } from "@clerk/expo";
-import { Pressable, Text, View } from "react-native";
+import { useState } from "react";
+import { Image, Modal, Pressable, StyleSheet, Text, View } from "react-native";
 
 const HomePage = () => {
   const { user, isLoaded } = useUser();
+  const [loading, setLoading] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const { signOut } = useClerk();
 
   if (!isLoaded) {
@@ -11,14 +14,55 @@ const HomePage = () => {
 
   async function handleSignOut() {
     try {
+      setLoading(true);
       await signOut();
     } catch (error) {
       console.log("Sign out error:", JSON.stringify(error, null, 2));
+    } finally {
+      setLoading(false);
+      setShowModal(!showModal);
     }
   }
 
   return (
-    <View className="flex-1 justify-center items-center">
+    <View className={`flex-1 justify-center items-center`}>
+      <Modal
+        animationType="slide"
+        visible={showModal}
+        transparent={true}
+        onRequestClose={() => {
+          alert("Modal has been closed.");
+          setShowModal(!showModal);
+        }}
+      >
+        <View className="flex-1 justify-center items-center bg-black/50">
+          <View className="bg-white p-5 rounded shadow">
+            <Text>Are you sure you want to sign out?</Text>
+            <View className="flex justify-center items-center mt-5">
+              <View className="w-full my-1">
+                <Pressable
+                  onPress={handleSignOut}
+                  className="bg-slate-500 p-3 rounded"
+                >
+                  <Text className="text-white text-center">Yes</Text>
+                </Pressable>
+              </View>
+              <View className="w-full my-1">
+                <Pressable
+                  onPress={() => setShowModal(!showModal)}
+                  className="bg-purple-500 p-3 rounded"
+                >
+                  <Text className="text-white text-center">Close</Text>
+                </Pressable>
+              </View>
+            </View>
+          </View>
+        </View>
+      </Modal>
+      <Image
+        source={require("@/assets/images/cart.png")}
+        style={styles.networkImage}
+      />
       <Text className="text-purple-500 text-2xl font-bold">
         Welcome to Cartly!
       </Text>
@@ -27,15 +71,31 @@ const HomePage = () => {
       </Text>
 
       <Pressable
-        onPress={handleSignOut}
+        onPress={() => setShowModal(!showModal)}
         className="mt-5 bg-blue-600 px-6 py-3 rounded-lg active:opacity-75"
+        disabled={loading}
       >
         <Text className="text-white font-semibold text-base" numberOfLines={1}>
-          Sign out
+          {loading ? "Signing out..." : "Sign out"}
         </Text>
       </Pressable>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  localImage: {
+    // Optional: Local images automatically infer their dimensions
+  },
+  networkImage: {
+    width: 150,
+    height: 150,
+  },
+});
 
 export default HomePage;
