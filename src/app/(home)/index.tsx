@@ -1,8 +1,10 @@
 import { useClerk, useUser } from "@clerk/expo";
+import { useState } from "react";
 import { Pressable, Text, View } from "react-native";
 
 const HomePage = () => {
   const { user, isLoaded } = useUser();
+  const [loading, setLoading] = useState(false);
   const { signOut } = useClerk();
 
   if (!isLoaded) {
@@ -11,9 +13,12 @@ const HomePage = () => {
 
   async function handleSignOut() {
     try {
+      setLoading(true);
       await signOut();
     } catch (error) {
       console.log("Sign out error:", JSON.stringify(error, null, 2));
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -29,9 +34,10 @@ const HomePage = () => {
       <Pressable
         onPress={handleSignOut}
         className="mt-5 bg-blue-600 px-6 py-3 rounded-lg active:opacity-75"
+        disabled={loading}
       >
         <Text className="text-white font-semibold text-base" numberOfLines={1}>
-          Sign out
+          {loading ? "Signing out..." : "Sign out"}
         </Text>
       </Pressable>
     </View>
