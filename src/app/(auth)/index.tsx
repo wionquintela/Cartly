@@ -1,6 +1,7 @@
 import { isClerkAPIResponseError, useSignIn, useSignUp } from "@clerk/expo";
+import { Ionicons } from "@expo/vector-icons";
 import { type Href, useRouter } from "expo-router";
-import * as React from "react";
+import { useState } from "react";
 import {
   Pressable,
   ScrollView,
@@ -23,10 +24,11 @@ export default function AuthPage() {
   } = useSignUp();
   const router = useRouter();
 
-  const [emailAddress, setEmailAddress] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [code, setCode] = React.useState("");
-  const [showEmailCode, setShowEmailCode] = React.useState(false);
+  const [emailAddress, setEmailAddress] = useState("");
+  const [password, setPassword] = useState("");
+  const [code, setCode] = useState("");
+  const [showEmailCode, setShowEmailCode] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const isFetching =
     signInFetchStatus === "fetching" || signUpFetchStatus === "fetching";
@@ -297,26 +299,40 @@ export default function AuthPage() {
 
         <View style={styles.fieldBlock}>
           <Text style={styles.label}>Password</Text>
-          <TextInput
-            style={styles.input}
-            value={password}
-            placeholder="Enter password"
-            placeholderTextColor="#666666"
-            onChangeText={setPassword}
-            secureTextEntry
-            autoCapitalize="none"
-            autoCorrect={false}
-            aria-disabled={isFetching}
-          />
+          <View className="flex flex-row items-center w-full bg-white border border-gray-300 rounded-lg px-3">
+            <TextInput
+              value={password}
+              className="flex-1 "
+              placeholder="Enter password"
+              placeholderTextColor="#666666"
+              onChangeText={setPassword}
+              secureTextEntry={showPassword}
+              autoCapitalize="none"
+              autoCorrect={false}
+              aria-disabled={isFetching}
+            />
+
+            <Pressable
+              onPress={() => setShowPassword(!showPassword)}
+              className="px-2"
+            >
+              <Ionicons
+                name={showPassword ? "eye-outline" : "eye-off-outline"}
+                size={25}
+                color="#64748B"
+              />
+            </Pressable>
+          </View>
+
           {signInErrors.fields?.password ? (
-            <Text style={styles.error}>
+            <Text className="text-red-600 italic text-sm">
               {signInErrors.fields.password.message}
             </Text>
           ) : null}
         </View>
 
         <Pressable
-          className={`${isFetching ? "bg-slate-400" : "bg-slate-600"} flex-1 justify-center items-center p-3 rounded`}
+          className={`${isFetching || canContinue ? "bg-slate-500" : "bg-slate-500/50"} flex-1 justify-center items-center p-3 rounded`}
           onPress={handleSubmit}
           disabled={!canContinue || isFetching}
         >

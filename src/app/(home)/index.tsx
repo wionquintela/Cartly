@@ -36,23 +36,30 @@ const HomePage = () => {
         }}
       >
         <View className="flex-1 justify-center items-center bg-black/50">
-          <View className="bg-white p-5 rounded shadow">
-            <Text>Are you sure you want to sign out?</Text>
-            <View className="flex justify-center items-center mt-5">
-              <View className="w-full my-1">
-                <Pressable
-                  onPress={handleSignOut}
-                  className="bg-slate-500 p-3 rounded"
-                >
-                  <Text className="text-white text-center">Yes</Text>
-                </Pressable>
-              </View>
-              <View className="w-full my-1">
+          <View className="bg-white pt-10 rounded shadow m-5">
+            <View className="flex justify-center items-center px-10">
+              <Text className="text-lg">Confirm Dialog</Text>
+              <Text className="text-sm text-slate-600 mt-2">
+                Are you sure you want to sign out?
+              </Text>
+            </View>
+            <View className=" flex flex-row  mt-5 border-t border-t-slate-600">
+              <View className="py-5 w-1/2">
                 <Pressable
                   onPress={() => setShowModal(!showModal)}
-                  className="bg-purple-500 p-3 rounded"
+                  disabled={loading}
+                  className=""
                 >
-                  <Text className="text-white text-center">Close</Text>
+                  <Text className="text-center text-sm">Close</Text>
+                </Pressable>
+              </View>
+              <View
+                className={`py-5 w-1/2 ${loading ? "bg-red-500/50" : "bg-red-500"} border-l border-l-slate-600`}
+              >
+                <Pressable onPress={handleSignOut} disabled={loading}>
+                  <Text className="text-white text-center text-sm">
+                    {loading ? "Signing out" : "Sign out"}
+                  </Text>
                 </Pressable>
               </View>
             </View>
@@ -76,7 +83,7 @@ const HomePage = () => {
         disabled={loading}
       >
         <Text className="text-white font-semibold text-base" numberOfLines={1}>
-          {loading ? "Signing out..." : "Sign out"}
+          Sign out
         </Text>
       </Pressable>
     </View>
