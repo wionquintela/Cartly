@@ -74,7 +74,7 @@ const HomePage = () => {
         style={styles.networkImage}
       />
       <Text className="text-base-content text-2xl font-inter-bold">
-        Welcome to Cartly!s
+        Welcome to Cartly!
       </Text>
       <View className="flex justify-center items-center">
         <UserButton />
