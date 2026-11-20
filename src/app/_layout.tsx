@@ -24,6 +24,8 @@ function RootNavigator() {
       <Stack.Protected guard={!isSignedIn}>
         <Stack.Screen name="(auth)" />
       </Stack.Protected>
+      {/* Keep this outside the guards so it always resolves during login */}
+      <Stack.Screen name="sso-callback" />
     </Stack>
   );
 }

@@ -1,3 +1,89 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  /* LIGHT MODE - Lemonade */
+  :root {
+    /* Base */
+    --color-base-100: 248 253 239;
+    --color-base-200: 225 230 217;
+    --color-base-300: 203 207 195;
+    --color-base-content: 21 22 20;
+
+    /* Primary */
+    --color-primary: 65 148 0;
+    --color-primary-content: 1 8 0;
+
+    /* Secondary */
+    --color-secondary: 189 192 0;
+    --color-secondary-content: 13 14 0;
+
+    /* Accent */
+    --color-accent: 237 208 0;
+    --color-accent-content: 20 16 0;
+
+    /* Neutral */
+    --color-neutral: 52 51 0;
+    --color-neutral-content: 210 211 199;
+
+    /* Info */
+    --color-info: 177 217 233;
+    --color-info-content: 12 17 19;
+
+    /* Success */
+    --color-success: 185 219 198;
+    --color-success-content: 13 17 14;
+
+    /* Warning */
+    --color-warning: 215 211 176;
+    --color-warning-content: 17 16 12;
+
+    /* Error */
+    --color-error: 239 198 194;
+    --color-error-content: 20 14 14;
+  }
+
+  /* DARK MODE */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      /* Base */
+      --color-base-100: 24 28 22;
+      --color-base-200: 34 40 30;
+      --color-base-300: 49 57 42;
+      --color-base-content: 235 240 225;
+
+      /* Primary */
+      --color-primary: 166 217 106;
+      --color-primary-content: 20 30 8;
+
+      /* Secondary */
+      --color-secondary: 213 216 91;
+      --color-secondary-content: 35 37 5;
+
+      /* Accent */
+      --color-accent: 240 217 92;
+      --color-accent-content: 40 35 5;
+
+      /* Neutral */
+      --color-neutral: 76 86 61;
+      --color-neutral-content: 235 240 225;
+
+      /* Info */
+      --color-info: 105 174 199;
+      --color-info-content: 10 25 32;
+
+      /* Success */
+      --color-success: 112 175 130;
+      --color-success-content: 10 28 16;
+
+      /* Warning */
+      --color-warning: 190 157 70;
+      --color-warning-content: 30 23 5;
+
+      /* Error */
+      --color-error: 195 105 96;
+      --color-error-content: 35 12 10;
+    }
+  }
+}

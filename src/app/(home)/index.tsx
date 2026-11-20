@@ -27,7 +27,7 @@ const HomePage = () => {
 
   return (
     <View
-      className={`flex-1 justify-center items-center ${showModal ? "opacity-50" : ""}`}
+      className={`flex-1 bg-base-200 justify-center items-center ${showModal ? "opacity-50" : ""}`}
     >
       <Modal
         animationType="slide"
@@ -38,33 +38,33 @@ const HomePage = () => {
           setShowModal(!showModal);
         }}
       >
-        <View className="flex-1 justify-center items-center ">
-          <View className="bg-white pt-10 rounded shadow m-5">
+        <View className="flex-1 justify-center items-center">
+          <View className="border border-base-300 bg-base-100 pt-10 shadow m-5 rounded-lg">
             <View className="flex justify-center items-center px-10">
-              <Text className="text-lg">Confirm Dialog</Text>
-              <Text className="text-sm text-slate-600 mt-2">
+              <Text className="text-lg text-base-content">
+                Cossnfirm Dialog
+              </Text>
+              <Text className="text-sm text-base-content/75 mt-2">
                 Are you sure you want to sign out?
               </Text>
             </View>
-            <View className=" flex flex-row  mt-5 border-t border-t-slate-300">
-              <View className="py-5 w-1/2">
-                <Pressable
-                  onPress={() => setShowModal(!showModal)}
-                  disabled={loading}
-                  className=""
-                >
-                  <Text className="text-center text-sm">Close</Text>
-                </Pressable>
-              </View>
-              <View
-                className={`py-5 w-1/2 ${loading ? "bg-red-500/50" : "bg-red-500"} border-l border-l-slate-300`}
+            <View className="flex flex-row  mt-5">
+              <Pressable
+                onPress={() => setShowModal(!showModal)}
+                disabled={loading}
+                className="py-5 w-1/2 bg-base-300/75 active:bg-base-300 rounded-bl-lg"
               >
-                <Pressable onPress={handleSignOut} disabled={loading}>
-                  <Text className="text-white text-center text-sm">
-                    {loading ? "Signing out" : "Sign out"}
-                  </Text>
-                </Pressable>
-              </View>
+                <Text className="text-center text-sm">Close</Text>
+              </Pressable>
+              <Pressable
+                onPress={handleSignOut}
+                disabled={loading}
+                className={`py-5 w-1/2 ${loading ? "bg-neutral/50" : "bg-neutral"} border-l border-l-slate-300 rounded-br-lg`}
+              >
+                <Text className="text-neutral-content text-center text-sm">
+                  {loading ? "Signing out" : "Sign out"}
+                </Text>
+              </Pressable>
             </View>
           </View>
         </View>
@@ -73,19 +73,19 @@ const HomePage = () => {
         source={require("@/assets/images/cart.png")}
         style={styles.networkImage}
       />
-      <Text className="text-purple-500 text-2xl font-inter-bold">
-        Welcome to Cartly!
+      <Text className="text-base-content text-2xl font-inter-bold">
+        Welcome to Cartly!s
       </Text>
-      <View className="flex">
+      <View className="flex justify-center items-center">
         <UserButton />
-        <Text className="text-slate-500 pt-1">
+        <Text className="text-base-content/75 pt-1">
           {user?.primaryEmailAddress?.emailAddress}
         </Text>
       </View>
 
       <Pressable
         onPress={() => setShowModal(!showModal)}
-        className="mt-5 bg-blue-600 px-6 py-3 rounded-lg active:opacity-75"
+        className="mt-5 bg-primary px-6 py-3 rounded-lg active:opacity-75"
         disabled={loading}
       >
         <Text className="text-white font-semibold text-base" numberOfLines={1}>
