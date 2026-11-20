@@ -1,4 +1,5 @@
 import { useClerk, useUser } from "@clerk/expo";
+import { UserButton } from "@clerk/expo/native-components";
 import { useState } from "react";
 import { Image, Modal, Pressable, StyleSheet, Text, View } from "react-native";
 
@@ -25,7 +26,9 @@ const HomePage = () => {
   }
 
   return (
-    <View className={`flex-1 justify-center items-center`}>
+    <View
+      className={`flex-1 justify-center items-center ${showModal ? "opacity-50" : ""}`}
+    >
       <Modal
         animationType="slide"
         visible={showModal}
@@ -35,7 +38,7 @@ const HomePage = () => {
           setShowModal(!showModal);
         }}
       >
-        <View className="flex-1 justify-center items-center bg-black/50">
+        <View className="flex-1 justify-center items-center ">
           <View className="bg-white pt-10 rounded shadow m-5">
             <View className="flex justify-center items-center px-10">
               <Text className="text-lg">Confirm Dialog</Text>
@@ -43,7 +46,7 @@ const HomePage = () => {
                 Are you sure you want to sign out?
               </Text>
             </View>
-            <View className=" flex flex-row  mt-5 border-t border-t-slate-600">
+            <View className=" flex flex-row  mt-5 border-t border-t-slate-300">
               <View className="py-5 w-1/2">
                 <Pressable
                   onPress={() => setShowModal(!showModal)}
@@ -54,7 +57,7 @@ const HomePage = () => {
                 </Pressable>
               </View>
               <View
-                className={`py-5 w-1/2 ${loading ? "bg-red-500/50" : "bg-red-500"} border-l border-l-slate-600`}
+                className={`py-5 w-1/2 ${loading ? "bg-red-500/50" : "bg-red-500"} border-l border-l-slate-300`}
               >
                 <Pressable onPress={handleSignOut} disabled={loading}>
                   <Text className="text-white text-center text-sm">
@@ -70,12 +73,15 @@ const HomePage = () => {
         source={require("@/assets/images/cart.png")}
         style={styles.networkImage}
       />
-      <Text className="text-purple-500 text-2xl font-bold">
+      <Text className="text-purple-500 text-2xl font-inter-bold">
         Welcome to Cartly!
       </Text>
-      <Text className="text-slate-500 pt-1">
-        {user?.primaryEmailAddress?.emailAddress}
-      </Text>
+      <View className="flex">
+        <UserButton />
+        <Text className="text-slate-500 pt-1">
+          {user?.primaryEmailAddress?.emailAddress}
+        </Text>
+      </View>
 
       <Pressable
         onPress={() => setShowModal(!showModal)}
