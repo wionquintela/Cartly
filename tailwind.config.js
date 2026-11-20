@@ -2,47 +2,29 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   presets: [require("nativewind/preset")],
+  darkMode: "media",
   theme: {
     extend: {
       colors: {
-        "base-100": "#F8FDEF",
-        "base-200": "#E1E6D9",
-        "base-300": "#CBCFC3",
-        "base-content": "#151614",
+        "base-100": "rgb(var(--color-base-100) / <alpha-value>)",
+        "base-200": "rgb(var(--color-base-200) / <alpha-value>)",
+        "base-300": "rgb(var(--color-base-300) / <alpha-value>)",
+        "base-content": "rgb(var(--color-base-content) / <alpha-value>)",
 
-        primary: "#419400",
-        "primary-content": "#010800",
+        primary: "rgb(var(--color-primary) / <alpha-value>)",
+        "primary-content": "rgb(var(--color-primary-content) / <alpha-value>)",
 
-        secondary: "#BDC000",
-        "secondary-content": "#0D0E00",
+        secondary: "rgb(var(--color-secondary) / <alpha-value>)",
+        "secondary-content":
+          "rgb(var(--color-secondary-content) / <alpha-value>)",
 
-        accent: "#EDD000",
-        "accent-content": "#141000",
-
-        neutral: "#343300",
-        "neutral-content": "#D2D3C7",
-
-        info: "#B1D9E9",
-        "info-content": "#0C1113",
-
-        success: "#B9DBC6",
-        "success-content": "#0D110E",
-
-        warning: "#D7D3B0",
-        "warning-content": "#11100C",
-
-        error: "#EFC6C2",
-        "error-content": "#140E0E",
+        accent: "rgb(var(--color-accent) / <alpha-value>)",
+        "accent-content": "rgb(var(--color-accent-content) / <alpha-value>)",
       },
-
       borderRadius: {
         selector: "16px",
         field: "8px",
         box: "16px",
-      },
-
-      borderWidth: {
-        DEFAULT: "1px",
       },
     },
   },

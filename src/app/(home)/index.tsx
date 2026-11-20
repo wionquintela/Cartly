@@ -71,7 +71,7 @@ const HomePage = () => {
         source={require("@/assets/images/cart.png")}
         style={styles.networkImage}
       />
-      <Text className="text-primary-content text-2xl font-inter-bold">
+      <Text className="text-base-content text-2xl font-inter-bold">
         Welcome to Cartly!
       </Text>
       <View className="flex justify-center items-center">
