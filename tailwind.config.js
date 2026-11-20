@@ -20,11 +20,26 @@ module.exports = {
 
         accent: "rgb(var(--color-accent) / <alpha-value>)",
         "accent-content": "rgb(var(--color-accent-content) / <alpha-value>)",
+
+        neutral: "rgb(var(--color-neutral) / <alpha-value>)",
+        "neutral-content": "rgb(var(--color-neutral-content) / <alpha-value>)",
+
+        info: "rgb(var(--color-info) / <alpha-value>)",
+        "info-content": "rgb(var(--color-info-content) / <alpha-value>)",
+
+        success: "rgb(var(--color-success) / <alpha-value>)",
+        "success-content": "rgb(var(--color-success-content) / <alpha-value>)",
+
+        warning: "rgb(var(--color-warning) / <alpha-value>)",
+        "warning-content": "rgb(var(--color-warning-content) / <alpha-value>)",
+
+        error: "rgb(var(--color-error) / <alpha-value>)",
+        "error-content": "rgb(var(--color-error-content) / <alpha-value>)",
       },
       borderRadius: {
-        selector: "16px",
-        field: "8px",
-        box: "16px",
+        selector: "1rem",
+        field: "0.5rem",
+        box: "1rem",
       },
     },
   },
