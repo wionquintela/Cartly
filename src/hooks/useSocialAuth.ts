@@ -1,6 +1,10 @@
 import { useSSO } from "@clerk/expo";
+import * as Linking from "expo-linking";
+import * as WebBrowser from "expo-web-browser";
 import { Dispatch, SetStateAction, useState } from "react";
 import { Alert } from "react-native";
+
+WebBrowser.maybeCompleteAuthSession();
 
 interface ChildProps {
   showModal: boolean;
@@ -22,7 +26,10 @@ export default function useSocialAuth({ showModal, setShowModal }: ChildProps) {
     setLoadingStrategy(strategy);
 
     try {
-      const { createdSessionId, setActive } = await startSSOFlow({ strategy }); //open up the specific oAuth and destructure sessionId and setActive
+      const { createdSessionId, setActive } = await startSSOFlow({
+        strategy,
+        redirectUrl: Linking.createURL("/sso-callback", { scheme: "cartly" }),
+      }); //open up the specific oAuth and destructure sessionId and setActive
       if (!createdSessionId || !setActive) {
         setShowModal(!showModal);
         return;

@@ -27,7 +27,7 @@ const HomePage = () => {
 
   return (
     <View
-      className={`flex-1 bg-base-100 justify-center items-center ${showModal ? "opacity-50" : ""}`}
+      className={`flex-1 bg-base-200 justify-center items-center ${showModal ? "opacity-50" : ""}`}
     >
       <Modal
         animationType="slide"
@@ -39,9 +39,11 @@ const HomePage = () => {
         }}
       >
         <View className="flex-1 justify-center items-center">
-          <View className="bg-base-100 pt-10 shadow m-5 rounded-lg">
+          <View className="border border-base-300 bg-base-100 pt-10 shadow m-5 rounded-lg">
             <View className="flex justify-center items-center px-10">
-              <Text className="text-lg text-base-content">Confirm Dialog</Text>
+              <Text className="text-lg text-base-content">
+                Cossnfirm Dialog
+              </Text>
               <Text className="text-sm text-base-content/75 mt-2">
                 Are you sure you want to sign out?
               </Text>
@@ -72,7 +74,7 @@ const HomePage = () => {
         style={styles.networkImage}
       />
       <Text className="text-base-content text-2xl font-inter-bold">
-        Welcome to Cartly!
+        Welcome to Cartly!s
       </Text>
       <View className="flex justify-center items-center">
         <UserButton />
