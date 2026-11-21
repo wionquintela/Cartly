@@ -41,9 +41,7 @@ const HomePage = () => {
         <View className="flex-1 justify-center items-center">
           <View className="border border-base-300 bg-base-100 pt-10 shadow m-5 rounded-lg">
             <View className="flex justify-center items-center px-10">
-              <Text className="text-lg text-base-content">
-                Cossnfirm Dialog
-              </Text>
+              <Text className="text-lg text-base-content">Confirm Dialog</Text>
               <Text className="text-sm text-base-content/75 mt-2">
                 Are you sure you want to sign out?
               </Text>
@@ -59,7 +57,7 @@ const HomePage = () => {
               <Pressable
                 onPress={handleSignOut}
                 disabled={loading}
-                className={`py-5 w-1/2 ${loading ? "bg-neutral/50" : "bg-neutral"} border-l border-l-slate-300 rounded-br-lg`}
+                className={`py-5 w-1/2 ${loading ? "bg-neutral/50" : "bg-neutral"} border-l border-l-base-300 rounded-br-lg`}
               >
                 <Text className="text-neutral-content text-center text-sm">
                   {loading ? "Signing out" : "Sign out"}
