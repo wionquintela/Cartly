@@ -8,6 +8,8 @@
     "@expo/material-symbols": "^0.1.1",
     "@expo/ui": "~58.0.29",
     "@expo/vector-icons": "^15.1.1",
+    "@neondatabase/serverless": "^1.2.1",
+    "drizzle-orm": "^0.45.4",
     "expo": "~58.0.26",
     "expo-auth-session": "~58.0.19",
     "expo-constants": "~58.0.16",
@@ -39,6 +41,7 @@
   "devDependencies": {
     "@types/react": "~19.3.0",
     "babel-preset-expo": "^58.0.26",
+    "drizzle-kit": "^0.31.11",
     "prettier-plugin-tailwindcss": "^0.5.14",
     "tailwindcss": "^3.4.19",
     "typescript": "~6.0.3"
@@ -49,7 +52,8 @@
     "android": "expo run:android",
     "ios": "expo run:ios",
     "web": "expo start --web",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "db:push": "drizzle-kit push"
   },
   "private": true
 }
