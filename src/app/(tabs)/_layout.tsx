@@ -4,11 +4,14 @@ const TabsLayout = () => {
   return (
     <NativeTabs>
       <NativeTabs.Trigger name="index">
-        <NativeTabs.Trigger.Label>Home</NativeTabs.Trigger.Label>
-        <NativeTabs.Trigger.Icon sf="house.fill" md="home" />
+        <NativeTabs.Trigger.Label>List</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon
+          sf="list.bullet.clipboard"
+          md="format_list_bulleted"
+        />
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="planner">
-        <NativeTabs.Trigger.Icon sf="note.text.badge.plus" md="edit_calendar" />
+        <NativeTabs.Trigger.Icon sf="note.text.badge.plus" md="add_circle" />
         <NativeTabs.Trigger.Label>Planner</NativeTabs.Trigger.Label>
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="insights">
