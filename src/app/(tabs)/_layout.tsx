@@ -1,24 +1,45 @@
 import { NativeTabs } from "expo-router/native-tabs";
+import { useColorScheme } from "react-native";
 
 const TabsLayout = () => {
+  const colorScheme = useColorScheme();
+  const isDark = colorScheme === "dark";
+
+  // Colors mapped directly from your CSS variables
+  const theme = isDark
+    ? {
+        primary: "#a6d96a", // rgb(166 217 106)
+        base100: "#181c16", // rgb(24 28 22)
+        base200: "#22281e", // rgb(34 40 30)
+        base300: "#31392a", // rgb(49 57 42)
+        defaultText: "#ebf0e1", // rgb(235 240 225) - base-content
+      }
+    : {
+        primary: "#419400", // rgb(65 148 0)
+        base100: "#f8fdef", // rgb(248 253 239)
+        base200: "#e1e6d9", // rgb(225 230 217)
+        base300: "#cbcfc3", // rgb(203 207 195)
+        defaultText: "#343300", // rgb(52 51 0) - neutral
+      };
+
   return (
     <NativeTabs
-      tintColor={"#419400"}
-      backgroundColor={"#F8FDEF"}
-      indicatorColor="#e1e6d9"
-      rippleColor="#cbcfc3"
+      tintColor={theme.primary}
+      backgroundColor={theme.base100}
+      indicatorColor={theme.base200}
+      rippleColor={theme.base300}
       iconColor={{
-        default: "#343300",
-        selected: "#419400",
+        default: theme.defaultText,
+        selected: theme.primary,
       }}
       labelStyle={{
         default: {
-          color: "#343300",
+          color: theme.defaultText,
           fontSize: 11,
           fontWeight: "500",
         },
         selected: {
-          color: "#419400",
+          color: theme.primary,
           fontSize: 11,
           fontWeight: "700",
         },
