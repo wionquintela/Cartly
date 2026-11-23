@@ -62,6 +62,7 @@ const TabsLayout = () => {
           md="analytics"
         />
         <NativeTabs.Trigger.Label>Insights</NativeTabs.Trigger.Label>
+        {/* <NativeTabs.Trigger.Badge>3+</NativeTabs.Trigger.Badge> */}
       </NativeTabs.Trigger>
     </NativeTabs>
   );
