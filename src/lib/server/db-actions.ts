@@ -1,4 +1,3 @@
-import { integer } from "drizzle-orm/pg-core";
 import { desc, eq } from "drizzle-orm";
 import { db } from "./db/client";
 import { groceryItems } from "./db/schema";
@@ -18,7 +17,6 @@ export const createGroceryItem = async (input: {
   name: string;
   category: string;
   quantity: number;
-
   priority: string;
 }) => {
   const rows = await db
