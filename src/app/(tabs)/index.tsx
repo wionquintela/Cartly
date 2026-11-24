@@ -1,6 +1,7 @@
+import { useGroceryStore } from "@/store/grocery-store";
 import { useClerk, useUser } from "@clerk/expo";
 import { UserButton } from "@clerk/expo/native-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Image, Modal, Pressable, StyleSheet, Text, View } from "react-native";
 
 const HomePage = () => {
@@ -9,9 +10,15 @@ const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
   const { signOut } = useClerk();
 
+  const { loadItems, items } = useGroceryStore();
+
   if (!isLoaded) {
     return <Text>Loading...</Text>;
   }
+
+  useEffect(() => {
+    loadItems();
+  });
 
   async function handleSignOut() {
     try {
