@@ -33,14 +33,28 @@ const ListScreen = () => {
     <View className="flex-1 bg-base-200">
       <TabScreenBackground />
       <ScrollView
-        className="flex-1 py-4 bg-transparent"
+        className="flex-1 bg-transparent"
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{
-          padding: 20,
+          paddingHorizontal: 20,
+          paddingTop: 20,
+          paddingBottom: 40,
           gap: 14,
         }}
       >
-        <ListHeroCard />
+        <View className="mt-10">
+          <ListHeroCard />
+        </View>
+        <View className="flex-row items-center justify-between mx-4">
+          <Text className="text-base-content/70 font-semibold text-sm">
+            Shopping Items
+          </Text>
+          <Text className="text-base-content/70 text-sm">
+            {items.length} active
+          </Text>
+        </View>
+
+        {/* Render your grocery items here */}
       </ScrollView>
     </View>
   );
