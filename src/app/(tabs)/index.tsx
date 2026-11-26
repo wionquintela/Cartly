@@ -1,10 +1,10 @@
 import ListCard from "@/components/list/ListCard";
 import ListHeroCard from "@/components/list/ListHeroCard";
 import TabScreenBackground from "@/components/TabScreenBackground";
-import { useGroceryStore } from "@/store/grocery-store";
+import { GroceryItem, useGroceryStore } from "@/store/grocery-store";
 import { useClerk, useUser } from "@clerk/expo";
 import { useState } from "react";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
 
 const ListScreen = () => {
   const { user, isLoaded } = useUser();
@@ -30,6 +30,12 @@ const ListScreen = () => {
     }
   }
 
+  const renderCard = ({ item }: { item: GroceryItem }) => (
+    <View className="my-1">
+      <ListCard {...item} />
+    </View>
+  );
+
   return (
     <View className="flex-1 bg-base-200">
       <TabScreenBackground />
@@ -54,9 +60,11 @@ const ListScreen = () => {
             {items.length} active
           </Text>
         </View>
-        <View>
-          <ListCard />
-        </View>
+        <FlatList
+          data={items}
+          renderItem={renderCard}
+          keyExtractor={(item) => item.id}
+        />
       </ScrollView>
     </View>
   );
