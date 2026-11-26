@@ -52,10 +52,10 @@ const ListCard = memo(
         </View>
         <View className="flex w-auto flex-row items-start justify-end">
           <View
-            className={`py-2 px-5 ${priority === "high" ? "bg-red-200/75" : priority === "medium" ? "bg-green-200/75" : "bg-blue-200/75"} rounded-l-full rounded-r-full`}
+            className={`rounded-full py-2 px-5 ${priority === "high" ? "bg-red-200/75" : priority === "medium" ? "bg-green-200/75" : "bg-blue-200/75"}`}
           >
             <Text
-              className={`${priority === "high" ? "text-red-400" : priority === "medium" ? "text-green-400" : "text-blue-400"} rounded-l-full rounded-r-full text-[8px]`}
+              className={`text-[8px] ${priority === "high" ? "text-red-400" : priority === "medium" ? "text-green-400" : "text-blue-400"} `}
             >
               {priority}
             </Text>
