@@ -2,10 +2,10 @@ import CustomModal from "@/components/Modal";
 import useSocialAuth from "@/hooks/useSocialAuth";
 import { useSignIn, useSignUp } from "@clerk/expo";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { cssInterop } from "nativewind";
 import { useState } from "react";
 import { Pressable, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { cssInterop } from "nativewind";
 
 cssInterop(Ionicons, {
   className: {

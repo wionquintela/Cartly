@@ -1,3 +1,4 @@
+import ListCard from "@/components/list/ListCard";
 import ListHeroCard from "@/components/list/ListHeroCard";
 import TabScreenBackground from "@/components/TabScreenBackground";
 import { useGroceryStore } from "@/store/grocery-store";
@@ -53,8 +54,9 @@ const ListScreen = () => {
             {items.length} active
           </Text>
         </View>
-
-        {/* Render your grocery items here */}
+        <View>
+          <ListCard />
+        </View>
       </ScrollView>
     </View>
   );

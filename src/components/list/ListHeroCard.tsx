@@ -17,18 +17,18 @@ const ListHeroCard = () => {
   }
 
   return (
-    <View className="w-full justify-center items-start p-5 border border-base-300 rounded-[25px] bg-base-100 shadow">
+    <View className="w-full justify-center items-start border border-base-300 p-5 rounded-[25px] bg-neutral shadow">
       <View className="w-full">
-        <Text className="text-sm text-base-content/75 p-1">TODAY</Text>
-        <Text className="text-4xl font-inter-bold text-base-content p-1">
+        <Text className="text-sm text-neutral-content/75 p-1">TODAY</Text>
+        <Text className="text-4xl font-inter-bold text-neutral-content p-1">
           Your Cartly List
         </Text>
         <View className="w-full  flex-row items-center">
-          <Text className="mx-1 text-xs text-base-content/75">
+          <Text className="mx-1 text-xs text-neutral-content/75">
             {pendingCount} pending
           </Text>
-          <Text className="text-base-content/75 pb-1">·</Text>
-          <Text className="mx-1 text-xs text-base-content/75">
+          <Text className="text-neutral-content/75 pb-1">·</Text>
+          <Text className="mx-1 text-xs text-neutral-content/75">
             {completedCount} completed
           </Text>
         </View>
@@ -37,9 +37,9 @@ const ListHeroCard = () => {
             progress={progress}
             width={null}
             height={20}
-            color={"#4C563D"}
+            color={"#419400"}
             borderWidth={0}
-            unfilledColor={"#e1e6d9"}
+            unfilledColor={"#EBF0E1"}
           />
         </View>
       </View>
