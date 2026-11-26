@@ -34,19 +34,27 @@ const ListCard = memo(
           <View className="mt-3 mb-5 flex self-start justify-center bg-primary/25 p-2 rounded-md">
             <Text className="text-primary text-[8px]">{category}</Text>
           </View>
-          <View className="flex flex-row items-center">
+          <View className="flex flex-row justify-between items-center">
             <Pressable
               onPress={() => setIsMinusClicked(!isMinusClicked)}
               className="p-3 border border-base-300 rounded active:bg-base-200"
             >
-              <Ionicons name="remove-outline" size={20} />
+              <Ionicons
+                name="remove-outline"
+                size={20}
+                className="text-base-content"
+              />
             </Pressable>
-            <Text className="mx-5 text-sm">{quantity}</Text>
+            <Text className="mx-5 text-sm text-base-content">{quantity}</Text>
             <Pressable
               onPress={() => setIsPlusClicked(!isPlusClicked)}
               className="p-3 border border-base-300 rounded active:bg-base-200"
             >
-              <Ionicons name="add-outline" size={20} />
+              <Ionicons
+                name="add-outline"
+                size={20}
+                className="text-base-content"
+              />
             </Pressable>
           </View>
         </View>
@@ -54,17 +62,13 @@ const ListCard = memo(
           <View
             className={`rounded-full py-2 px-5 ${priority === "high" ? "bg-red-200/75" : priority === "medium" ? "bg-green-200/75" : "bg-blue-200/75"}`}
           >
-            <Text
-              className={`text-[8px] ${priority === "high" ? "text-red-400" : priority === "medium" ? "text-green-400" : "text-blue-400"} `}
-            >
-              {priority}
-            </Text>
+            <Text className={`text-[8px] text-base-content `}>{priority}</Text>
           </View>
-          <Pressable className="ml-2 bg-red-800 p-3 rounded-md">
+          <Pressable className="ml-2 bg-red-600 p-3 rounded-md active:bg-red-800">
             <Ionicons
               name="close-outline"
               size={20}
-              className="text-base-100"
+              className="text-base-content"
             />
           </Pressable>
         </View>
