@@ -26,7 +26,7 @@ const CustomModal = ({
         setShowModal(!showModal);
       }}
     >
-      <View className="flex-1 justify-center items-center">
+      <View className="flex-1 justify-center items-center bg-black/50">
         <View className="border border-base-300 bg-base-100 pt-10 shadow-lg m-5 rounded-lg">
           <View className="flex justify-center items-center px-10">
             <Text className="text-lg text-base-content">{title}</Text>

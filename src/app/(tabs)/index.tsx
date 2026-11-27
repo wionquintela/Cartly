@@ -55,7 +55,7 @@ const ListScreen = () => {
                 Shopping Items
               </Text>
               <Text className="text-base-content/70 text-sm">
-                {items.length} actives
+                {items.length} active
               </Text>
             </View>
           </View>
