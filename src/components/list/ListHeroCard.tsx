@@ -13,7 +13,7 @@ const ListHeroCard = () => {
   }
 
   return (
-    <View className="w-full justify-center items-start border border-base-300 p-5 rounded-[25px] bg-neutral shadow">
+    <View className="w-full justify-center items-start p-5 rounded-[25px] bg-neutral shadow">
       <View className="w-full">
         <Text className="text-sm text-neutral-content/75 p-1">TODAY</Text>
         <Text className="text-4xl font-inter-bold text-neutral-content p-1">

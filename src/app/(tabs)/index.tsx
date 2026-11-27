@@ -1,5 +1,6 @@
 import ListCard from "@/components/list/ListCard";
 import ListHeroCard from "@/components/list/ListHeroCard";
+import TabScreenBackground from "@/components/TabScreenBackground";
 import { useGroceryStore } from "@/store/grocery-store";
 import { useClerk, useUser } from "@clerk/expo";
 import { useEffect, useState } from "react";
@@ -37,6 +38,7 @@ const ListScreen = () => {
 
   return (
     <View className="flex-1 bg-base-200 pt-5 px-5">
+      <TabScreenBackground />
       <FlatList
         showsVerticalScrollIndicator={false}
         data={items}

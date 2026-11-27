@@ -93,7 +93,7 @@ const ListCard = memo(
           </View>
           <View className="flex w-auto flex-row items-start justify-end">
             <View
-              className={`rounded-full py-2 px-5 ${priority === "high" ? "bg-red-200/75" : priority === "medium" ? "bg-green-200/75" : "bg-blue-200/75"}`}
+              className={`rounded-full py-2 px-5 border border-2 ${priority === "high" ? "border-red-200/75" : priority === "medium" ? "border-green-200/75" : "border-blue-200/75"}`}
             >
               <Text className={`text-[8px] text-base-content `}>
                 {capitalizeFirstLetter(priority)}
@@ -102,15 +102,15 @@ const ListCard = memo(
             <Pressable
               onPress={() => handleRemove(id)}
               disabled={isRemoveClicked}
-              className={`${isRemoveClicked ? "bg-red-800" : ""} ml-2 bg-red-600 p-3 rounded-md active:bg-red-800`}
+              className={`${isRemoveClicked ? "bg-neutral/75" : ""} ml-2 bg-neutral p-3 rounded-md active:bg-neutral/75`}
             >
               {isRemoveClicked ? (
-                <ActivityIndicator size={20} className="text-base-content" />
+                <ActivityIndicator size={20} className="text-neutral-content" />
               ) : (
                 <Ionicons
                   name="close-outline"
                   size={20}
-                  className="text-base-content"
+                  className="text-neutral-content"
                 />
               )}
             </Pressable>
