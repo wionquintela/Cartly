@@ -38,6 +38,7 @@ const ListScreen = () => {
   return (
     <View className="flex-1 bg-base-200 pt-5 px-5">
       <FlatList
+        showsVerticalScrollIndicator={false}
         data={items}
         renderItem={({ item }) => (
           <View className="my-3">
