@@ -97,6 +97,14 @@ export const useGroceryStore = create<GroceryStore>((set, get) => ({
     const nextQuantity = Math.max(1, quantity);
     set({ error: null });
     try {
+      // optimistic update, UI update instantly
+      set((state) => ({
+        error: null,
+        items: state.items.map((item) =>
+          item.id === id ? { ...item, quantity: nextQuantity } : item,
+        ),
+      }));
+
       const res = await fetch(`/api/items/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
