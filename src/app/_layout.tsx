@@ -1,6 +1,7 @@
 import { ClerkProvider, useAuth } from "@clerk/expo";
 import { tokenCache } from "@clerk/expo/token-cache";
 import { Stack } from "expo-router";
+import { ActivityIndicator, Text, View } from "react-native";
 import "../../global.css";
 
 const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!;
@@ -12,8 +13,18 @@ if (!publishableKey) {
 function RootNavigator() {
   const { isSignedIn, isLoaded } = useAuth();
 
+  console.log("CLERK STATUS:", {
+    isLoaded,
+    isSignedIn,
+  });
+
   if (!isLoaded) {
-    return null;
+    return (
+      <View className="flex-1 items-center justify-center bg-base-200">
+        <Text>Loading auth...</Text>
+        <ActivityIndicator size="large" />
+      </View>
+    );
   }
 
   return (
@@ -24,7 +35,6 @@ function RootNavigator() {
       <Stack.Protected guard={!isSignedIn}>
         <Stack.Screen name="(auth)" />
       </Stack.Protected>
-      {/* Keep this outside the guards so it always resolves during login */}
       <Stack.Screen name="sso-callback" />
     </Stack>
   );

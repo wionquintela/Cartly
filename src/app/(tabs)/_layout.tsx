@@ -5,6 +5,8 @@ const TabsLayout = () => {
   const colorScheme = useColorScheme();
   const isDark = colorScheme === "dark";
 
+  console.log("TABS LAYOUT MOUNTED");
+
   // Colors mapped directly from your CSS variables
   const theme = isDark
     ? {

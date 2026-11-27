@@ -1,16 +1,12 @@
 import { useGroceryStore } from "@/store/grocery-store";
-import { useEffect } from "react";
 import { Text, View } from "react-native";
 import * as Progress from "react-native-progress";
 
 const ListHeroCard = () => {
-  const { items, loadItems, isLoading } = useGroceryStore();
+  const { items, isLoading } = useGroceryStore();
   const completedCount = items.filter((item) => item.purchased).length;
   const pendingCount = items.filter((item) => !item.purchased).length;
   const progress = items.length > 0 ? completedCount / items.length : 0;
-  useEffect(() => {
-    loadItems();
-  }, [loadItems]);
 
   if (isLoading) {
     return null;
