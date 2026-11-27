@@ -1,4 +1,5 @@
 import { GroceryItem } from "@/store/grocery-store";
+import { capitalizeFirstLetter } from "@/utils/formatter";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { cssInterop } from "nativewind";
 import { memo, useState } from "react";
@@ -23,7 +24,7 @@ const ListCard = memo(
     return (
       <View
         key={id}
-        className="flex flex-row justify-between w-full border border-base-300 rounded-lg p-5 bg-base-100"
+        className="flex flex-row justify-between w-full border border-base-300 rounded-[25px] p-5 bg-base-100"
       >
         {/*Top row */}
         <View className="">
@@ -62,7 +63,9 @@ const ListCard = memo(
           <View
             className={`rounded-full py-2 px-5 ${priority === "high" ? "bg-red-200/75" : priority === "medium" ? "bg-green-200/75" : "bg-blue-200/75"}`}
           >
-            <Text className={`text-[8px] text-base-content `}>{priority}</Text>
+            <Text className={`text-[8px] text-base-content `}>
+              {capitalizeFirstLetter(priority)}
+            </Text>
           </View>
           <Pressable className="ml-2 bg-red-600 p-3 rounded-md active:bg-red-800">
             <Ionicons

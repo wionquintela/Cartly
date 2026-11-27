@@ -1,6 +1,6 @@
 import ListCard from "@/components/list/ListCard";
 import ListHeroCard from "@/components/list/ListHeroCard";
-import { GroceryItem, useGroceryStore } from "@/store/grocery-store";
+import { useGroceryStore } from "@/store/grocery-store";
 import { useClerk, useUser } from "@clerk/expo";
 import { useEffect, useState } from "react";
 import { FlatList, Text, View } from "react-native";
@@ -35,63 +35,30 @@ const ListScreen = () => {
     }
   }
 
-  const renderCard = ({ item }: { item: GroceryItem }) => (
-    <View className="my-1">
-      <ListCard {...item} />
-    </View>
-  );
-
-  const ListHeader = () => (
-    <View>
-      <View className="mt-10">
-        <ListHeroCard />
-      </View>
-      <View className="flex-row items-center justify-between mx-4">
-        <Text className="text-base-content/70 font-semibold text-sm">
-          Shopping Itemss
-        </Text>
-        <Text className="text-base-content/70 text-sm">
-          {items.length} actives
-        </Text>
-      </View>
-    </View>
-  );
-
   return (
     <View className="flex-1 bg-base-200 pt-5 px-5">
       <FlatList
         data={items}
         renderItem={({ item }) => (
-          <View className="my-1">
+          <View className="my-3">
             <ListCard {...item} />
           </View>
         )}
         keyExtractor={(item) => item.id}
         ListHeaderComponent={
-          <FlatList
-            data={items}
-            renderItem={({ item }) => (
-              <View className="my-1">
-                <ListCard {...item} />
-              </View>
-            )}
-            keyExtractor={(item) => item.id}
-            ListHeaderComponent={
-              <View>
-                <View className="mt-10">
-                  <ListHeroCard />
-                </View>
-                <View className="flex-row items-center justify-between mx-4">
-                  <Text className="text-base-content/70 font-semibold text-sm">
-                    Shopping Items
-                  </Text>
-                  <Text className="text-base-content/70 text-sm">
-                    {items.length} actives
-                  </Text>
-                </View>
-              </View>
-            }
-          />
+          <View>
+            <View className="mt-10">
+              <ListHeroCard />
+            </View>
+            <View className="flex-row items-center justify-between mx-4 mt-3">
+              <Text className="text-base-content/70 font-semibold text-sm">
+                Shopping Items
+              </Text>
+              <Text className="text-base-content/70 text-sm">
+                {items.length} actives
+              </Text>
+            </View>
+          </View>
         }
       />
     </View>
