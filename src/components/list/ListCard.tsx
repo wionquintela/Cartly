@@ -1,4 +1,4 @@
-import { GroceryItem } from "@/store/grocery-store";
+import { GroceryItem, useGroceryStore } from "@/store/grocery-store";
 import { capitalizeFirstLetter } from "@/utils/formatter";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { cssInterop } from "nativewind";
@@ -21,6 +21,15 @@ const ListCard = memo(
     const [isMinusClicked, setIsMinusClicked] = useState(false);
     const [isPlusClicked, setIsPlusClicked] = useState(false);
 
+    const { updateQuantity, removeItem } = useGroceryStore();
+
+    const handleQuantityChange = async (delta: number) => {
+      setIsMinusClicked(!isMinusClicked);
+      const nextQuantity = quantity + delta;
+      await updateQuantity(id, nextQuantity);
+      return;
+    };
+
     return (
       <View
         key={id}
@@ -37,7 +46,7 @@ const ListCard = memo(
           </View>
           <View className="flex flex-row justify-between items-center">
             <Pressable
-              onPress={() => setIsMinusClicked(!isMinusClicked)}
+              onPress={() => handleQuantityChange(-1)}
               className="p-3 border border-base-300 rounded active:bg-base-200"
             >
               <Ionicons
@@ -48,7 +57,7 @@ const ListCard = memo(
             </Pressable>
             <Text className="mx-5 text-sm text-base-content">{quantity}</Text>
             <Pressable
-              onPress={() => setIsPlusClicked(!isPlusClicked)}
+              onPress={() => handleQuantityChange(+1)}
               className="p-3 border border-base-300 rounded active:bg-base-200"
             >
               <Ionicons
